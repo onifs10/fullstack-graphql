@@ -5,11 +5,19 @@
 
 module.exports = {
   Query: {
-    
+    pets : async (_, {input}, { models }) => {
+      let result = await models.Pet.findMany(input)
+      return result
+    },
+    pet: async (_, { input }, { models }) => {
+      let pet = await models.Pet.findOne({ id: input.id })
+      return pet
+    } 
   },
-  Mutation: {
+  // Mutation: {
     
-  },
+  // },
+
   Pet: {
     img(pet) {
       return pet.type === 'DOG'
@@ -17,6 +25,7 @@ module.exports = {
         : 'http://placekitten.com/300/300'
     }
   },
+
   User: {
     
   }
