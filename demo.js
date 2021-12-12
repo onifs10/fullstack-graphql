@@ -6,6 +6,13 @@ const gql = require('graphql-tag')
 // schema 
 const typeDefs = gql`
     # type definition --> tables in sql db
+
+    enum ShoeType {
+        JORDAN
+        ADDIDAS
+        NIKE
+    }
+
     type User {
         email: String!
         avatar: String
@@ -14,17 +21,17 @@ const typeDefs = gql`
 
 
     type Shoe {
-        brand: String!
+        brand: ShoeType!
         size: Int! 
     }
 
     input ShoeInput{
-        brand: String
+        brand: ShoeType
         size: Int
     }
 
     input NewSheoInput{
-        brand: String!
+        brand: ShoreType!
         size: Int! 
     }
 
@@ -37,7 +44,7 @@ const typeDefs = gql`
     type Mutation{
         newSheo(input: NewSheoInput!): shoe
     }
-
+z
 
 `
 

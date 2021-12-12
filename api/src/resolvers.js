@@ -14,19 +14,28 @@ module.exports = {
       return pet
     } 
   },
-  // Mutation: {
-    
-  // },
+  Mutation: {
+    newPet : async (_, { input }, { models })  => {
+      let newPet = await models.Pet.create(input);
+      return newPet
+    }
+  },  
 
   Pet: {
     img(pet) {
       return pet.type === 'DOG'
         ? 'https://placedog.net/300/300'
         : 'http://placekitten.com/300/300'
+    },
+    owner(pet, __, ctx){
+        return ctx.models.User.findOne({id: pet.owner})
     }
   },
 
   User: {
-    
+    pets(user,__, ctx) {
+      return ctx.models.Pet.findMany({ owner : user.id})
+    }
   }
+  
 }

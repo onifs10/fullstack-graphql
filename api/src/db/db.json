@@ -3,10 +3,20 @@
     "id": "jBWMVGjm50l6LGwepDoty",
     "username": "frontendmaster"
   },
-  "pet": [{
-    "id" : "sample",
-    "name" : "like",
-    "type" : "DOG",
-    "createdAt" : 12
-  }]
+  "pet": [
+    {
+      "id": "sample",
+      "name": "like",
+      "type": "DOG",
+      "createdAt": 12,
+      "owner": "jBWMVGjm50l6LGwepDoty"
+    },
+    {
+      "id": "9qWovcdnyicjOL-yAKg-E",
+      "createdAt": 1639295968848,
+      "name": "like",
+      "type": "DOG",
+      "owner": "jBWMVGjm50l6LGwepDoty"
+    }
+  ]
 }
